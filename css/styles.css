@@ -1,0 +1,64 @@
+
+.header{
+    background-color: #281944;
+}
+
+.footer{
+    background-color: #FE4682;
+}
+
+
+rose
+style="background-color: #FE4682 ; color: white"
+
+purple light
+style="background-color: #A566EB ; color: white"
+
+purple mid
+style="background-color: #5627A6 ; color: white"
+
+purple foncé
+style="background-color: #281944 ; color: white"
+
+
+
+
+
+
+.noir{
+    color: #000000;
+}
+
+.gris{
+    color: #7c7c7c;
+}
+
+.bleu{
+    color: #001eff;
+}
+
+.rouge{
+    color: #ff0000;
+}
+
+.vert{
+    color: #0bf031;
+}
+
+.jaune{
+    color: #f8ff20;
+}
+
+.normal{
+    font-weight: normal;
+}
+
+.italique{
+    font-style: italic;
+}
+
+
+.gras{
+    font-weight: bold;
+}
+
