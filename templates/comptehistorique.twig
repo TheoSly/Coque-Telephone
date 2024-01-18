@@ -1,0 +1,29 @@
+{% extends 'comptemusicien.twig' %}
+
+{% block compte %}
+			<div class="d-flex flex-column ms-5 ps-5">
+				<h3>Historique des réservations :</h3>
+				<a href="controleur.php?page=compte&action=delete" class="btn btn-outline-danger mb-2">Supprimer l'historique</a>
+				<div class="row border p-3" style="width: 800px;">
+					{% for historique in historiques %}
+						<div class="col-12 col-sm-6 col-lg-6 mb-5" >
+							<div class="card" style="width: 18rem;">
+								<div class="card-body">
+									<a><h5 class="card-title">{{ historique.titre }}</h5></a>
+									<a><h5 class="card-title">Auteur: {{ historique.auteur }}</h5></a>
+									<b class="card-text">Nom/Prénom associés :</b>
+									<p class="card-text">{{ historique.nom }}</p>
+									<b class="card-text">Email associés :</b>
+									<p class="card-text">{{ historique.email }}</p>
+									<b class="card-text">Message envoyé :</b>
+									<p class="card-text">{{ historique.msg }}</p>
+									<a href="controleur.php?page=prestation&action=detailread&id={{ historique.id_prestation }}" class="btn" style="background-color: #A566EB ; color: white">+ de détails</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div> 
+			</div> 
+{% endblock %}
+
+

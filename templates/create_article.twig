@@ -1,0 +1,66 @@
+{% extends 'base.twig' %}
+
+	{% block banniere %}
+		<img width="100%" height="300px" class="object-fit-cover" src="./image/site/back.png" alt="banniere"/>
+		<h1 class="fs-1 fw-bold text-center text-white" style="margin-top: -200px; margin-bottom: 200px;">Création Partition</h1>
+	{% endblock %}	
+
+{% block page %}
+    <div class="d-flex">
+        <div>
+            <h3>Remplissez le formulaire pour créer une partition !</h3>
+            <form action="controleur.php?page=article&action=create" method="post" enctype="multipart/form-data">
+                <div class="groupe">
+                    <i style="color: #A566EB" class="bi bi-chat-dots-fill"></i>
+                    <label class="form-label">Titre de la partition</label>
+                    <input class="form-control mb-2" type="text" name="titre" placeholder="Saisir un titre">
+                </div>
+                <div class="groupe">
+                    <i style="color: #A566EB" class="bi bi-chat-square-text-fill"></i>
+                    <label class="form-label">Upload un fichier (pdf)</label>
+                    <input class="form-control mb-2" type="file" name="chapeau" placeholder="Saisir une image">
+                </div>
+                <div class="groupe">
+                    <i style="color: #A566EB" class="bi bi-person-circle"></i>
+                    <label class="form-label">Nom / Prénom de l'auteur</label>
+                    <input class="form-control mb-2" type="text" name="auteur" placeholder="Saisir un auteur">
+                </div>
+                <div class="groupe">
+                    <i style="color: #A566EB" class="bi bi-caret-down-fill iselect"></i>
+                    <label class="form-label">Choisir la catégorie</label>
+                    <select class="form-select" name="id_categorie" class="select">
+                        <option value="7">Pop/Rock</option>
+                        <option value="8">Jazz</option>
+                        <option value="9">Pop US</option>
+                        <option value="10">Musique de Film</option>
+                        <option value="11">Rap</option>
+                    </select>
+                </div>
+                <button class="btn mt-2" style="background-color: #5627A6 ; color: white" type="submit" value="Envoyer">Ajouter</button>
+            </form>
+        </div>
+        <div class="ms-5">
+        	<h4 class="ms-5">Exemple de mis en forme :</h4>
+            <hr class="ms-5">
+            <div class="card d-flex flex-row ms-5">
+				<div>
+					<img class="card-img-left" src="./image/site/exemplepartition.png" width="250px" height="350px" frameborder="0"> </img>
+				</div>
+				<div class="card-body" style="width: 200px;">
+					<a><h5 class="card-title">Titre de la partition</h5></a>
+					<p class="card-text">Partition créé par Nom / Prénom</p>
+                    <i class="card-text">Liste des éléments</i>
+					<a href="#" class="btn" style="background-color: #FE4682 ; color: white">Télécharger</a>
+				</div>
+			</div>
+        </div>
+    </div>
+
+
+    
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,38 @@
+
+{% extends 'base.twig' %}
+
+	{% block banniere %}
+		<img width="100%" height="300px" class="object-fit-cover" src="./image/site/back.png" alt="banniere"/>
+		<h1 class="fs-1 fw-bold text-center text-white" style="margin-top: -200px; margin-bottom: 200px;">Connexion Utilisateur</h1>
+	{% endblock %}	
+
+{% block page %}
+    <div class="border border-secondary-subtle p-5 rounded">
+        <h2 class="fs-1 fw-bold text-center mb-5" style="color: #A566EB">Connexion Utilisateur</h2>
+        <form method="POST" action="controleur.php?page=compte&action=loginutilisateur">
+        <div class="">
+            <i style="color: #A566EB" class="bi bi-envelope-fill"></i>
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control mb-2" type="email" placeholder="Entrez votre e-mail..." id="email" name="email" required>
+        </div>
+        <div style="color: #A566EB" class="">
+            <i class="bi bi-shield-fill-check"></i>
+            <label class="form-label" for="password">Mot de passe</label>
+            <input class="form-control mb-4" type="password" placeholder="Entrez votre mdp..." id="password" name="password" required>
+        </div>
+
+        <div class="text-center mb-3">
+            <input class="btn" style="background-color: #A566EB ; color: white" type="submit" value="Se connecter" name="ok">
+        </div>
+        </form>
+    <div class="text-center mb-2">
+        <a href="controleur.php?page=compte&action=register" style="color: #5627A6; font-weight: bold;" class="text-decoration-none">S'inscrire</a>
+    </div>
+    <div class="text-center mb-2">
+        <a href="controleur.php?page=compte&action=loginmusicien" style="color: #FE4682" class="text-decoration-none">Connexion pour les musiciens</a>
+    </div>
+    <div class="text-center mb-2">
+        <a href="controleur.php?page=compte&action=loginadmin" class="text-decoration-none text-danger text-decoration-underline">Connexion pour les Administrateurs</a>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,175 @@
+{% extends 'base.twig' %}
+
+
+	{% block page %}
+	<div class="card d-flex row ms-5" style="width: 1000px;">
+
+		<h2>{{ prestation.titre }}</h2>
+		<p>{{ prestation.auteur }}</p>
+		<form action="controleur.php?page=prestation&action=update" method="post">
+			<div class="groupe">
+				<i style="color: #FE4682" class="bi bi-chat-dots-fill"></i>
+				<label class="form-label">Modifier le titre</label>
+				<input class="form-control mb-2" type="text" name="titre" value="{{ prestation.titre }}">
+			</div>
+			<div class="groupe">
+				<i style="color: #FE4682" class="bi bi-person-fill"></i>
+				<label class="form-label">Modifier l'auteur</label>
+				<input class="form-control mb-2" type="text" name="auteur" value="{{ prestation.auteur }}">
+			</div>
+			<div class="groupe">
+					<i style="color: #FE4682" class="bi bi-card-list"></i>
+					<label class="form-label">Selectionner une catégorie</label>
+                    <select class="form-select mb-2" name="id_categorie" class="select">
+                        <option value="1">Solfège</option>
+                        <option value="2">Voix</option>
+                        <option value="3">Piano</option>
+                        <option value="4">Guitare</option>
+                        <option value="5">Basse</option>
+                        <option value="6">Batterie</option>
+                    </select>
+                </div>
+			<input type="hidden" name="id" value="{{ prestation.id }}'">
+			<div class="colum">
+				<button class="btn btn-success mb-4 mt-2" type="submit" value="Envoyer">Envoyer</button>
+			</div>
+		</form>
+		<hr>
+
+		
+		{% for elementpres in elementpres %}
+			<{{ elementpres.balise }} style="width: 300px;" alt="{{ elementpres.alt }}" class="image {{ elementpres.class }} {{ elementpres.font }}" src="./image/uploads/{{ elementpres.src }}" >{{ elementpres.contenu }}</{{ elementpres.balise }}>
+
+			<p class="titremodif">⚙️ Modifier l'élement</p>
+			<form action="controleur.php?page=elementpres&action=update" method="post">
+				<div class="groupe">
+					<i style="color: #A566EB" class="bi bi-file-code-fill"></i>
+					<label class="form-label">Selectionner la balise</label>
+					<select class="form-select mb-2" name="balise" class="select">
+						<option value="{{ elementpres.balise }}">{{ elementpres.balise }}</option>
+						<option value="h2">Titre</option>
+						<option value="h3">Sous Titre</option>
+						<option value="p">Paragraphe</option>
+						<option value="i">Citation</option>
+						<option value="img">Image</option>
+
+					</select>
+				</div>
+				<div class="groupe">
+					<i style="color: #A566EB" class="bi bi-filetype-css"></i>
+					<label class="form-label">Selectionner le style</label>
+					<select class="form-select mb-2" name="font" class="select">
+						<option value="{{ elementpres.font }}">{{ elementpres.font }}</option>
+						<option value="normal">Normal</option>
+						<option value="italique">Italique</option>
+						<option value="gras">Gras</option>
+					</select>
+				</div>
+				<div class="groupe">
+					<i style="color: #A566EB" class="bi bi-palette-fill"></i>
+					<label class="form-label">Selectionner la couleur</label>
+					<select class="form-select mb-2" name="class" class="select">
+						<option value="{{ elementpres.class }}">{{ elementpres.class }}</option>
+						<option value="noir">Noir</option>
+						<option value="gris">Gris</option>
+						<option value="rouge">Rouge</option>
+						<option value="bleu">Bleu</option>
+						<option value="jaune">Jaune</option>
+						<option value="vert">Vert</option>
+					</select>
+				</div>
+				<div class="groupe">
+					<i style="color: #A566EB" class="bi bi-paragraph"></i>
+					<label class="form-label">Saisir le contenu</label>
+					<input class="form-control mb-2" type="text" name="contenu" value="{{ elementpres.contenu }}">
+				</div>
+				<div class="groupe">
+					<i style="color: #A566EB" class="bi bi-file-earmark-image-fill"></i>
+					<label class="form-label">uploads une image</label>
+					<input class="form-control mb-2" type="text" name="src" value="{{ elementpres.src }}">
+				</div>
+				<div class="groupe">
+					<i style="color: #A566EB" class="bi bi-chat-square-dots-fill"></i>
+					<label class="form-label">Saisir l'alt de l'image</label>
+            		<input class="form-control mb-2" type="text" name="alt" placeholder="Saisir alt de l'image">
+				</div>
+				<div class="groupe">
+					<i style="color: #A566EB" class="bi bi-pip"></i>
+					<label class="form-label">Saisir une légende</label>
+            		<input class="form-control" type="text" name="fichier" placeholder="Saisir un une légende de l'image">
+				</div>
+				<input type="hidden" name="id" value="{{ elementpres.id }}">
+				<div class="colum">
+				<button class="btn btn-success mb-4 mt-2" type="submit" value="Envoyer">Envoyer</button>
+				<button class="btn btn-outline-danger mb-4 mt-2"><a class="text-danger text-decoration-none" href="controleur.php?page=elementpres&action=delete&id={{ elementpres.id }}">Supprimmer</a></button>
+				</div>
+			</form>
+			<hr>
+			
+		{% endfor %}
+			<p class="titremodif">⚙️ Ajouter un element</p>
+	<form action="controleur.php?page=elementpres&action=create" method="post" enctype="multipart/form-data">
+		<div class="groupe">
+			<i style="color: #5627A6" class="bi bi-file-code-fill"></i>
+			<label class="form-label">Selectionner la balise</label>
+			<select class="form-select mb-2" name="balise" class="select">
+				<option value="h2">Titre</option>
+				<option value="h3">Sous Titre</option>
+				<option value="p">Paragraphe</option>
+				<option value="i">Citation</option>
+				<option value="img">Image</option>
+			</select>
+		</div>
+		<div class="groupe">
+			<i style="color: #5627A6" class="bi bi-filetype-css"></i>
+			<label class="form-label">Selectionner le style</label>
+			<select class="form-select mb-2" name="font" class="select">
+				<option value="normal">Normal</option>
+				<option value="italique">Italique</option>
+				<option value="gras">Gras</option>
+			</select>
+		</div>
+		<div class="groupe">
+			<i style="color: #5627A6" class="bi bi-palette-fill"></i>
+			<label class="form-label">Selectionner la couleur</label>
+			<select class="form-select mb-2" name="class" class="select">
+				<option value="noir">Noir</option>
+				<option value="gris">Gris</option>
+				<option value="rouge">Rouge</option>
+				<option value="bleu">Bleu</option>
+				<option value="jaune">Jaune</option>
+				<option value="vert">Vert</option>
+			</select>
+		</div>
+		
+		<div class="groupe">
+			<i style="color: #5627A6" class="bi bi-paragraph"></i>
+			<label class="form-label">Saisir le contenu</label>
+            <input class="form-control mb-2" type="text" name="contenu" placeholder="Saisir un contenu">
+		</div>
+		<div class="groupe">
+			<i style="color: #5627A6" class="bi bi-file-earmark-image-fill"></i>
+			<label class="form-label">uploads une image</label>
+            <input class="form-control mb-2" type="file" name="src" placeholder="Saisir une image">
+		</div>
+		<div class="groupe">
+			<i style="color: #5627A6" class="bi bi-chat-square-dots-fill"></i>
+			<label class="form-label">Saisir l'alt de l'image</label>
+            <input class="form-control mb-2" type="text" name="alt" placeholder="Saisir alt de l'image">
+		</div>
+		<div class="groupe">
+			<i style="color: #5627A6" class="bi bi-chat-square-dots-fill"></i>
+			<label class="form-label">Saisir une légende</label>
+            <input class="form-control mb-2" type="text" name="fichier" placeholder="Saisir un une légende de l'image">
+		</div>
+    		<input type="hidden" name="id_prestation" value="{{ prestation.id }}">
+			<button class="btn mb-2 mt-2" type="submit" value="Envoyer" style="background-color: #5627A6 ; color: white">Ajouter</button>
+    </form>
+	</div>
+	{% endblock %}
+
+
+
+	
+
+

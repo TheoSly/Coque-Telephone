@@ -1,0 +1,24 @@
+{% extends 'base.twig' %}
+
+
+	{% block page %}
+		<div class="d-flex">
+					<form class="p-4 bg-body-secondary rounded-end" style="width: 600px;" action="controleur.php?page=autres&action=sendcontact" method="post">
+							<h1 class="mt-2 text-center mb-3" style="color: #FE4682">Contacter le support</h1>
+							<i style="color: #FE4682" class="bi bi-person-fill"></i>
+        					<label class="form-label" for="nom">Votre Nom/Prénom</label>
+							<input class="form-control mb-2" type="text" name="nom" value="" placeholder="Saisir votre nom et prenom">
+							<i style="color: #FE4682" class="bi bi-envelope-fill"></i>
+       						 <label class="form-label" for="email">Votre Email</label>
+							<input class="form-control mb-2" type="email" name="email" value="" placeholder="Saisir votre email">
+							<i class="bi bi-exclamation-triangle-fill text-danger"></i>
+							<b class="text-danger">Notre adresse email est invalide</b>
+							<br>
+							<i style="color: #FE4682" class="bi bi-tag-fill"></i>
+        					<label class="form-label mb-2" for="message">Votre Message</label>
+							<input style="height: 200px;" class="form-control" type="text" name="message" value="" placeholder="Saisir votre message">
+							<button class="btn mt-2" style="background-color: #5627A6 ; color: white" type="submit" name="send">Réserver</button>
+					</form>
+		</div>
+	{% endblock %}
+

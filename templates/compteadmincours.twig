@@ -1,0 +1,23 @@
+{% extends 'compteadmin.twig' %}
+
+{% block compte %}
+			<div class="d-flex flex-column ms-5 ps-5">
+				<h3>Les cours ajoutées par les Musiciens :</h3>
+				<div class="row border p-3" style="width: 800px;">
+					{% for prestation in prestations %}
+						<div class="col-12 col-sm-6 col-lg-6 mb-5" >
+							<div class="card" style="width: 23rem;">
+								<div class="card-body">
+									<a><h5 class="card-title">{{ prestation.titre }}</h5></a>
+									<p class="card-text">Cours créé par {{ prestation.auteur }}</p>
+									<a href="controleur.php?page=prestation&action=detailread&id={{ prestation.id }}" class="btn" style="background-color: #A566EB ; color: white">+ de détails</a>
+									<a href="controleur.php?page=prestation&action=edit&id={{ prestation.id }}" class="btn btn-outline-warning">Modifier</a>
+									<a href="controleur.php?page=prestation&action=delete&id={{ prestation.id }}" class="btn btn-outline-danger" >Supprimmer</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+			</div> 
+		</div>
+{% endblock %}
+

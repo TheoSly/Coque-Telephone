@@ -1,0 +1,23 @@
+{% extends 'comptemusicien.twig' %}
+
+{% block compte %}
+			<div class="d-flex flex-column ms-5 ps-5">
+				<h3>Historique des achats :</h3>
+				<a href="controleur.php?page=compte&action=deletevente" class="btn btn-outline-danger mb-2">Supprimer l'historique</a>
+				<div class="row border p-3" style="width: 800px;">
+					{% for historiquevente in historiqueventes %}
+						<div class="col-12 col-sm-6 col-lg-6 mb-5">
+							<div class="card" style="width: 18rem;">
+								<img class="card-img-top" src="./image/uploads/{{ historiquevente.chapeau }}" width="250px" height="300px" frameborder="0"> </img>
+								<div class="card-body">
+									<a><h5 class="card-title">{{ historiquevente.titre }}</h5></a>
+									<p class="card-text">Partition créé par {{ historiquevente.auteur }}</p>
+									<a href="controleur.php?page=vente&action=detailread&id={{ historiquevente.id }}" class="btn" style="background-color: #A566EB ; color: white">+ de détails</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div> 
+{% endblock %}
+

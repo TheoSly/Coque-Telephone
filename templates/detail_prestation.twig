@@ -1,0 +1,37 @@
+{% extends 'base.twig' %}
+
+
+	{% block page %}
+		<div class="d-flex">
+			<div class="navaside">
+				<b>Les cours: </b>
+				{% for tousprestation in tousprestation %}
+					<hr>
+					<a class="text-decoration-none" style="color: #5627A6" href="controleur.php?page=prestation&action=detailread&id={{ tousprestation.id }}"><p>{{ tousprestation.titre }}</p></a>
+				{% endfor %}
+			</div>
+			<div class="card d-flex flex-row ms-5" style="width: 800px;">
+				<div class="card-body" style="width: 600px;">
+					<a><h5 class="card-title">{{ prestation.titre }}</h5></a>
+					<p class="card-text">Partition créé par {{ prestation.auteur }}</p>
+					{% for elementpres in elementpres %}
+						<{{ elementpres.balise }} style="width: 300px;" alt="{{ elementpres.alt }}" class="image {{ elementpres.class }} {{ elementpres.font }}" src="./image/uploads/{{ elementpres.src }}" >{{ elementpres.contenu }}</{{ elementpres.balise }}>
+					{% endfor %}
+				</div>
+			<div>
+					<form class="p-4 bg-body-secondary rounded-end" action="controleur.php?page=prestation&action=reservation" method="post">
+					   		<input type="hidden" name="id_prestation" value="{{ prestation.id }}">
+							<h5>Réserver le cours</h5>
+							<label class="form-label">Nom / Prénom</label>
+							<input class="form-control" type="text" name="nom" value="" placeholder="Saisir votre nom et prenom">
+							<label class="form-label mt-2">Adresse Email</label>
+							<input class="form-control" type="email" name="email" value="" placeholder="Saisir votre email">
+							<label class="form-label mt-2">Message</label>
+							<input style="height: 200px;" class="form-control" type="text" name="msg" value="" placeholder="Saisir votre message">
+							<button href="" class="btn mt-2" style="background-color: #FE4682 ; color: white" type="submit" name="send">Réserver</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+

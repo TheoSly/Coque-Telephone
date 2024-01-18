@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" title="Design" href="css/styles.css">  
+	<link rel="stylesheet" media="screen" title="Design" href="css/toastr.min.css">  
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+	<title>Document</title>
+</head>
+<body>
+	<header>
+	<nav class="navbar navbar-expand-lg navbar-dark header ps-5 pe-5">
+  <div class="container-fluid ps-5 pe-5">
+  	<a href="index.php"><img class="logo" src="./image/site/logo.png" alt="logo" width="50px"/></a>
+    <a class="navbar-brand me-5 pe-5" href="index.php">MYZIC</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">Partitions</a>
+          <ul class="dropdown-menu" style="background-color: #FE4682;">
+            <li><a class="dropdown-item" style="font-weight: bold;" href="controleur.php?page=article&action=read">Toutes les partitions</a></li>
+            <li><a class="dropdown-item" href="controleur.php?page=article&action=readpoprock">Pop/Rock</a></li>
+            <li><a class="dropdown-item" href="controleur.php?page=article&action=readjazz">Jazz</a></li>
+            <li><a class="dropdown-item" href="controleur.php?page=article&action=readpopus">Pop US</a></li>
+            <li><a class="dropdown-item" href="controleur.php?page=article&action=readmusiquedefilm">Musique de film</a></li>
+            <li><a class="dropdown-item" href="controleur.php?page=article&action=readrap">Rap</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+	<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cours</a>
+          <ul class="dropdown-menu" style="background-color: #FE4682;">
+            <li><a class="dropdown-item" style="font-weight: bold;" href="controleur.php?page=prestation&action=read">Tous les cours</a></li>
+            <li><a class="dropdown-item" href="controleur.php?page=prestation&action=readsolfege">Solfège</a></li>
+            <li><a class="dropdown-item" href="controleur.php?page=prestation&action=readvoix">Voix</a></li>
+			      <li><a class="dropdown-item" href="controleur.php?page=prestation&action=readpiano">Piano</a></li>
+            <li><a class="dropdown-item" href="controleur.php?page=prestation&action=readguitare">Guitare</a></li>
+            <li><a class="dropdown-item" href="controleur.php?page=prestation&action=readbasse">Basse</a></li>
+			      <li><a class="dropdown-item" href="controleur.php?page=prestation&action=readbatterie">Batterie</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ventes d'occasion</a>
+          <ul class="dropdown-menu" style="background-color: #FE4682;">
+            <li><a class="dropdown-item" style="font-weight: bold;" href="controleur.php?page=vente&action=read">Toutes le ventes</a></li>
+            <li><a class="dropdown-item" href="controleur.php?page=vente&action=readcorde">Instrument à corde</a></li>
+            <li><a class="dropdown-item" href="controleur.php?page=vente&action=readvent">Instrument à vent</a></li>
+			      <li><a class="dropdown-item" href="controleur.php?page=vente&action=readpercussion">Percussion</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+	<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+		<a href="controleur.php?page=compte&action=contact" class="text-white text-decoration-none">Contact</a>
+	</div>
+  <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+		<a href="controleur.php?page=compte&action=login" class="text-white text-decoration-none"><i style="color: #FE4682" class="bi bi-person-circle"></i></a>
+	</div>
+  </div>
+</nav>
+
+
+	{% block banniere %}
+		<img width="100%" height="300px" class="object-fit-cover" src="./image/site/back.png" alt="banniere"/>
+		<h1 class="fs-1 fw-bold text-center text-white" style="margin-top: -200px; margin-bottom: 200px;">MYZIC</h1>
+	{% endblock %}	
+	</header>
+
+	<main style="display: flex; justify-content: center; margin-bottom: 80px;">
+	{% block page %}
+  <div style="flex-direction: column;">
+		<div>
+			<h2 class="text-center fs-1 fw-bold text-decoration-underline">À PROPOS DE MYZIC</h2>
+			<p class="text-center" >MYZIC est un site indépendant pour les passionnés de musique, vous proposant au quotidien leurs services sur le monde des notes.</p>
+		</div>
+  		
+    <h3 class="text-center fs-2 fw-bold mt-5 pt-5" style="color: #FE4682 ;">Recommandation Des Partitions</h3>
+
+    <div id="carouselpartition" class="carousel slide mb-5 ms-auto  me-auto" style="width: 700px;">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselpartition" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselpartition" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselpartition" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner text-dark">
+    <div class="carousel-item active">
+      <img src="./image/site/exemplepartition1.jpg" class="d-block w-100 rounded-3"  alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./image/site/exemplepartition2.jpg" class="d-block w-100 rounded-3" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./image/site/exemplepartition3.jpg" class="d-block w-100 rounded-3" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselpartition" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselpartition" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="d-flex justify-content-center">
+  <a class="btn" style="background-color: #FE4682 ; color: white" href="controleur.php?page=article&action=read">Accedez à toutes les partitions</a></li>
+</div>
+
+<h3 class="text-center fs-2 fw-bold mt-5 pt-5" style="color: #A566EB ;">Recommandation Des Cours</h3>
+
+    <div id="carouselcours" class="carousel slide ms-auto  me-auto" style="width: 700px;">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselcours" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselcours" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselcours" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./image/site/exemplecours1.jpg" class="d-block w-100 rounded-3" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./image/site/exemplecours2.jpg" class="d-block w-100 rounded-3" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./image/site/exemplecours3.jpg" class="d-block w-100 rounded-3" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselcours" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselcours" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="d-flex justify-content-center mt-4">
+  <a class="btn" style="background-color: #A566EB ; color: white" href="controleur.php?page=prestation&action=read">Accedez à toutes les cours</a></li>
+</div>
+
+
+<h3 class="text-center fs-2 fw-bold mt-5 pt-5" style="color: #281944 ;">Recommandation Des Ventes</h3>
+
+    <div id="carouselvente" class="carousel slide ms-auto  me-auto" style="width: 700px;">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselvente" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselvente" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselvente" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./image/site/exemplevente1.jpg" class="d-block w-100 rounded-3" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./image/site/exemplevente2.jpg" class="d-block w-100 rounded-3" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="./image/site/exemplevente3.jpg" class="d-block w-100 rounded-3" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselvente" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselvente" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="d-flex justify-content-center mt-4">
+  <a class="btn" style="background-color: #281944 ; color: white" href="controleur.php?page=vente&action=read">Accedez à toutes les ventes</a></li>
+</div>
+
+	{% endblock %}
+	</main>
+
+  <footer class="px-5 pt-5 footer text-white">
+    <div class="row">
+      <div class="col-6 col-md-2 mb-3 ">
+        <h5>MYZIC</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2 "><a href="index.php" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a href="controleur.php?page=compte&action=contact" class="nav-link p-0 text-muted">Contact</a></li>
+          <li class="nav-item mb-2"><a href="controleur.php?page=compte&action=login" class="nav-link p-0 text-muted"><i class="bi bi-person-circle"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Partitions</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="controleur.php?page=article&action=readpoprock" class="nav-link p-0 text-muted">Pop/Rock</a></li>
+          <li class="nav-item mb-2"><a href="controleur.php?page=article&action=readjazz" class="nav-link p-0 text-muted">Jazz</a></li>
+          <li class="nav-item mb-2"><a href="controleur.php?page=article&action=readpopus" class="nav-link p-0 text-muted">Pop US</a></li>
+          <li class="nav-item mb-2"><a href="controleur.php?page=article&action=readmusiquedefilm" class="nav-link p-0 text-muted">Musique de Film</a></li>
+          <li class="nav-item mb-2"><a href="controleur.php?page=article&action=readrap" class="nav-link p-0 text-muted">Rap</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Cours</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="controleur.php?page=prestation&action=readsolfege" class="nav-link p-0 text-muted">Solfège</a></li>
+          <li class="nav-item mb-2"><a href="controleur.php?page=prestation&action=readvoix" class="nav-link p-0 text-muted">Voix</a></li>
+          <li class="nav-item mb-2"><a href="controleur.php?page=prestation&action=readpiano" class="nav-link p-0 text-muted">Piano</a></li>
+          <li class="nav-item mb-2"><a href="controleur.php?page=prestation&action=readguitare" class="nav-link p-0 text-muted">Guitare</a></li>
+          <li class="nav-item mb-2"><a href="controleur.php?page=prestation&action=readbasse" class="nav-link p-0 text-muted">Basse</a></li>
+          <li class="nav-item mb-2"><a href="controleur.php?page=prestation&action=readbatterie" class="nav-link p-0 text-muted">Batterie</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-5 offset-md-1 mb-3">
+        <form action="controleur.php?page=autres&action=sendnews" method="post">
+          <h5>Inscription à la newsletter</h5>
+          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+            <label class="visually-hidden">Saisir adresse email</label>
+            <input type="email" name="email" value=""  type="text" class="form-control" placeholder="Email address">
+            <button class="btn" style="background-color: #A566EB ; color: white" type="submit" name="send">Inscription</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-2 border-top">
+      <p>© 2022 MYZIC, Site réalisé dans le but d'un Projet Universitaire</p>
+      <a href="controleur.php?page=article&action=mention" class="text-decoration-none text-white">Mentions légales</a>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-dark text-white" href="https://www.instagram.com"><i class="bi bi-instagram"></i></a></li>
+        <li class="ms-3"><a class="link-dark text-white" href="https://twitter.com"><i class="bi bi-twitter-x"></i></a></li>
+        <li class="ms-3"><a class="link-dark text-white" href="https://www.facebook.com"><i class="bi bi-facebook"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+
+</html>

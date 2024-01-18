@@ -1,0 +1,58 @@
+{% extends 'base.twig' %}
+
+	{% block banniere %}
+		<img width="100%" height="300px" class="object-fit-cover" src="./image/site/back.png" alt="banniere"/>
+		<h1 class="fs-1 fw-bold text-center text-white" style="margin-top: -200px; margin-bottom: 200px;">Inscription Musiciens</h1>
+	{% endblock %}	
+
+{% block page %}
+    <div class="border border-secondary-subtle p-5 rounded">
+        <h2 class="fs-1 fw-bold text-center mb-5" style="color: #FE4682">Inscription Musiciens</h2>
+        <form method="POST" action="controleur.php?page=compte&action=registermusicienco">
+    <div class="d-flex flex-row gap-3">
+        <div class="">
+        <i style="color: #FE4682" class="bi bi-person-fill"></i>
+        <label class="form-label" for="nom">Votre nom</label>
+        <input class="form-control mb-2" type="text" id="nom" name="nom" placeholder="nom">
+        </div>
+
+        <div class="">
+        <i style="color: #FE4682" class="bi bi-person-fill"></i>
+        <label class="form-label" for="prenom">Votre prénom</label>
+        <input class="form-control mb-2" type="text" id="prenom" name="prenom" placeholder="prenom">
+        </div>
+    </div>
+        <div class="">
+        <i style="color: #FE4682" class="bi bi-tag-fill"></i>
+        <label class="form-label" for="pseudo">Votre pseudo</label>
+        <input class="form-control mb-2" type="text" id="pseudo" name="pseudo" placeholder="pseudo">
+        </div>
+
+        <div class="">
+        <i style="color: #FE4682" class="bi bi-envelope-fill"></i>
+        <label class="form-label" for="email">Votre e-mail</label>
+        <input class="form-control mb-2" type="email" id="email" name="email" placeholder="email">
+        </div>
+
+        <div class="">
+        <i style="color: #FE4682" class="bi bi-shield-fill-check"></i>
+        <label class="form-label" for="mdp">Votre mot de passe</label>
+        <input class="form-control mb-4" type="password" id="pass" name="pass" placeholder="mdp">
+        </div>
+
+        <div class="text-center mb-3">
+        <input class="btn" style="background-color: #FE4682 ; color: white" type="submit" value="M'inscrire" name="ok">
+        </div>
+    </form>
+        <div class="text-center mb-2">
+            <a href="controleur.php?page=compte&action=loginmusicien" style="color: #5627A6; font-weight: bold;" class=" text-decoration-none">Se connecter</a>
+        </div>
+        <div class="text-center mb-2">
+            <a href="controleur.php?page=compte&action=register" style="color: #A566EB" class=" text-decoration-none">Inscription pour les utilisateurs</a>
+        </div>
+        <div class="text-center mb-2">
+        <a href="controleur.php?page=compte&action=loginadmin" class="text-decoration-none text-danger text-decoration-underline">Connexion pour les Administrateurs</a>
+    </div>
+    </div>
+{% endblock %}
+

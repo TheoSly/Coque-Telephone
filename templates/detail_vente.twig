@@ -1,0 +1,38 @@
+{% extends 'base.twig' %}
+
+
+	{% block page %}
+		<div class="d-flex">
+			<div class="navaside">
+				<b>Les ventes: </b>
+				{% for tousvente in tousvente %}
+					<hr>
+					<a class="text-decoration-none" style="color: #5627A6" href="controleur.php?page=vente&action=detailread&id={{ tousvente.id }}"><p>{{ tousvente.titre }}</p></a>
+				{% endfor %}
+			</div>
+			<div class="card d-flex flex-row ms-5" style="width: 800px;">
+				<div class="card-body" style="width: 600px;">
+					<a><h5 class="card-title">{{ vente.titre }}</h5></a>
+					<p class="card-text">Partition créé par {{ vente.auteur }}</p>
+					<img style="width: 300px;" src="./image/uploads/{{ vente.chapeau }}" >
+					{% for elementvente in elementvente %}
+						<{{ elementvente.balise }} style="width: 300px;" alt="{{ elementvente.alt }}" class="image {{ elementvente.class }} {{ elementvente.font }}" src="./image/uploads/{{ elementvente.src }}" >{{ elementvente.contenu }}</{{ elementvente.balise }}>
+					{% endfor %}
+				</div>
+				<div>
+					<form class="p-4 bg-body-secondary rounded-end" action="controleur.php?page=vente&action=sendvente" method="post">
+					   		<input type="hidden" name="id_vente" value="{{ vente.id }}">
+							<h5>{{ vente.titre }}</h5>
+							<label class="form-label">Nom / Prénom</label>
+							<input class="form-control" type="text" name="nom" value="" placeholder="Saisir votre nom et prenom">
+							<label class="form-label mt-2">Adresse livraison</label>
+							<input class="form-control" type="text" name="email" value="" placeholder="Saisir votre adresse de livraison">
+							<label class="form-label mt-2">coordonnées bancaire</label>
+							<input class="form-control" type="text" name="msg" value="" placeholder="Saisir votre coordonnées bancaire">
+							<button href="" class="btn mt-2" style="background-color: #FE4682 ; color: white" type="submit" name="send">Acheter</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+

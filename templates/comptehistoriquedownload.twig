@@ -1,0 +1,24 @@
+{% extends 'comptemusicien.twig' %}
+
+{% block compte %}
+			<div class="d-flex flex-column ms-5 ps-5">
+				<h3>Historique des téléchargements :</h3>
+				<a href="controleur.php?page=compte&action=deletedownload" class="btn btn-outline-danger mb-2">Supprimer l'historique</a>
+				<div class="row border p-3" style="width: 800px;">
+					{% for historiquedownload in historiquedownloads %}
+						<div class="col-12 col-sm-6 col-lg-6 mb-5">
+							<div class="card" style="width: 18rem;">
+								<iframe class="card-img-top" src="./image/uploads/{{ historiquedownload.chapeau }}" width="250px" height="300px" frameborder="0"> </iframe>
+								<div class="card-body">
+									<a><h5 class="card-title">{{ historiquedownload.titre }}</h5></a>
+									<p class="card-text">Partition créé par {{ historiquedownload.auteur }}</p>
+									<a href="controleur.php?page=article&action=detailread&id={{ historiquedownload.id }}" class="btn" style="background-color: #A566EB ; color: white">+ de détails</a>
+									<a href="./image/uploads/{{ historiquedownload.chapeau }}" download="{{ historiquedownload.chapeau }}" class="btn" style="background-color: #FE4682 ; color: white" type="submit">Télécharger</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div> 
+{% endblock %}
+

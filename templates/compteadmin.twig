@@ -1,0 +1,61 @@
+{% extends 'base.twig' %}
+
+	{% block banniere %}
+		<img width="100%" height="300px" class="object-fit-cover" src="./image/site/back.png" alt="banniere"/>
+		<h1 class="fs-1 fw-bold text-center text-white" style="margin-top: -200px; margin-bottom: 200px;">Compte Administrateur</h1>
+	{% endblock %}	
+
+{% block page %}
+		<div class="d-flex">
+			<div>
+				<h3>Menu Administrateur : </h3>
+				<hr>
+				<a href="controleur.php?page=compte&action=compteadmin" class="btn text-decoration-none" style="background-color: #FE4682 ; color: white">Les comptes</a>
+				<hr>
+				<a href="controleur.php?page=compte&action=partitionsadmin" class="btn text-decoration-none mb-3" style="border-color: #A566EB ; color: #A566EB">Les partitions ajoutées</a>
+				<br>
+				<a href="controleur.php?page=compte&action=coursadmin" class="btn text-decoration-none mb-3" style="border-color: #A566EB ; color: #A566EB">Les cours ajoutés</a>
+				<br>
+				<a href="controleur.php?page=compte&action=ventesadmin" class="btn text-decoration-none" style="border-color: #A566EB ; color: #A566EB">Les ventes ajoutées</a>
+				<hr>
+			</div>
+			{% block compte %}
+			<div class="d-flex flex-column ms-5 ps-5">
+				<h2>Les Comptes Utilisateurs et Musiciens :</h2>
+				<div class="row border p-3" style="width: 800px;">
+					<h3 style="color: #A566EB">Les Utilisateurs :</h3>
+					{% for users in userss %}
+						<div class="col-12 col-sm-6 col-lg-6 mb-5" >
+							<div class="card" style="width: 23rem;">
+								<div class="card-body">
+									<a><h5 class="card-title" style="color: #A566EB"><strong>Pseudo: </strong>{{ users.pseudo }}</h5></a>
+									<p class="card-text"><strong>Nom :</strong> {{ users.nom }}</p>
+									<p class="card-text"><strong>Prénom:</strong> {{ users.prenom }}</p>
+									<p class="card-text"><strong>Adresse email:</strong> {{ users.email }}</p>
+									<p class="card-text"><strong>Mot de passe:</strong> {{ users.mdp }}</p>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+					<h3 style="color: #FE4682">Les Musiciens :</h3>
+					{% for usersmusiciens in usersmusicienss %}
+						<div class="col-12 col-sm-6 col-lg-6 mb-5" >
+							<div class="card" style="width: 23rem;">
+								<div class="card-body">
+									<a><h5 class="card-title" style="color: #FE4682">Pseudo: {{ usersmusiciens.pseudo }}</h5></a>
+									<p class="card-text"><strong>Nom: </strong>{{ usersmusiciens.nom }}</p>
+									<p class="card-text"><strong>Prénom: </strong>{{ usersmusiciens.prenom }}</p>
+									<p class="card-text"><strong>Adresse email: </strong>{{ usersmusiciens.email }}</p>
+									<p class="card-text"><strong>Mot de passe: </strong>{{ usersmusiciens.mdp }}</p>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div> 
+			</div>
+	
+			{% endblock %}
+		</div>
+
+{% endblock %}
+

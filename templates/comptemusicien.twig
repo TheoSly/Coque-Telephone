@@ -1,0 +1,43 @@
+{% extends 'base.twig' %}
+
+	{% block banniere %}
+		<img width="100%" height="300px" class="object-fit-cover" src="./image/site/back.png" alt="banniere"/>
+		<h1 class="fs-1 fw-bold text-center text-white" style="margin-top: -200px; margin-bottom: 200px;">Compte Musicien</h1>
+	{% endblock %}	
+
+{% block page %}
+		<div class="d-flex">
+			<div>
+				<h3>Menu Musicien : </h3>
+				<hr>
+				<a href="controleur.php?page=article&action=new" class="btn text-decoration-none mb-3" style="background-color: #FE4682 ; color: white">Ajouter une partitions </a>
+				<br>
+				<a href="controleur.php?page=prestation&action=new" class="btn text-decoration-none mb-3" style="background-color: #FE4682 ; color: white">Ajouter un cours</a>
+				<br>
+				<a href="controleur.php?page=vente&action=new" class="btn text-decoration-none" style="background-color: #FE4682 ; color: white">Ajouter une vente</a>
+				<hr>
+				<a href="controleur.php?page=compte&action=mespartitions" class="btn text-decoration-none mb-3" style="border-color: #A566EB ; color: #A566EB">Mes partitions ajoutées</a>
+				<br>
+				<a href="controleur.php?page=compte&action=mescours" class="btn text-decoration-none mb-3" style="border-color: #A566EB ; color: #A566EB">Mes cours ajoutés</a>
+				<br>
+				<a href="controleur.php?page=compte&action=mesventes" class="btn text-decoration-none" style="border-color: #A566EB ; color: #A566EB">Mes ventes ajoutées</a>
+				<hr>
+				<a href="controleur.php?page=compte&action=historiquedownload" class="btn text-decoration-none mb-3" style="border-color: #5627A6 ; color: #5627A6">Mes téléchargements</a>
+				<br>
+				<a href="controleur.php?page=compte&action=historique" class="btn text-decoration-none mb-3" style="border-color: #5627A6 ; color: #5627A6">Mes réservations</a>
+				<br>
+				<a href="controleur.php?page=compte&action=historiquevente" class="btn text-decoration-none" style="border-color: #5627A6 ; color: #5627A6">Mes achats</a>
+			</div>
+			{% block compte %}
+			<div class="d-flex flex-column ms-5 ps-5">
+				<h2>Cliquez sur une catégorie :</h2>
+				<div class="row border p-3" style="width: 800px;">
+					
+			</div> 
+		</div>
+	
+			{% endblock %}
+		</div>
+
+{% endblock %}
+
